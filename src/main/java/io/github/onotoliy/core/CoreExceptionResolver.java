@@ -17,12 +17,12 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
  * @author Anatoliy Pokhresnyi
  */
 @ControllerAdvice
-public class TreasureExceptionResolver {
+public class CoreExceptionResolver {
 
     /**
      * Конструктор по умолчанию.
      */
-    public TreasureExceptionResolver() {
+    public CoreExceptionResolver() {
 
     }
 

@@ -11,7 +11,7 @@ import org.jooq.DSLContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import static com.github.onotoliy.ofiles.ofilesservice.jooq.Tables.TREASURE_LOG;
+import static io.github.onotoliy.core.jooq.Tables.TREASURE_LOG;
 
 /**
  * Репозиторий логирования.

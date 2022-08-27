@@ -10,3 +10,5 @@
 /http-client.http
 /gradle/
 /target/
+/gradlew
+/gradlew.bat
