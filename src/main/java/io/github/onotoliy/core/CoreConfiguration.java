@@ -21,7 +21,11 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 @ComponentScan
 public class CoreConfiguration {
 
-    private final static Logger LOGGER = LoggerFactory.getLogger(CoreConfiguration.class);
+    /**
+     * Logger.
+     */
+    private static final Logger LOGGER =
+            LoggerFactory.getLogger(CoreConfiguration.class);
 
     /**
      * Переменный окружения.
@@ -44,13 +48,25 @@ public class CoreConfiguration {
     @EventListener(ApplicationReadyEvent.class)
     public void onStart() {
         DriverManagerDataSource ds = new DriverManagerDataSource();
-        ds.setDriverClassName(environment.getRequiredProperty("spring.datasource.driver-class-name"));
-        ds.setUrl(environment.getRequiredProperty("spring.datasource.url"));
-        ds.setUsername(environment.getRequiredProperty("spring.datasource.username"));
-        ds.setPassword(environment.getRequiredProperty("spring.datasource.password"));
+        ds.setDriverClassName(
+            environment.getRequiredProperty(
+                "spring.datasource.driver-class-name"
+            )
+        );
+        ds.setUrl(
+            environment.getRequiredProperty("spring.datasource.url")
+        );
+        ds.setUsername(
+            environment.getRequiredProperty("spring.datasource.username")
+        );
+        ds.setPassword(
+            environment.getRequiredProperty("spring.datasource.password")
+        );
 
         SpringLiquibase liquibase = new SpringLiquibase();
-        liquibase.setChangeLog("classpath:/db/changelog/db.core.changelog-master.xml");
+        liquibase.setChangeLog(
+            "classpath:/db/changelog/db.core.changelog-master.xml"
+        );
         liquibase.setDataSource(ds);
         liquibase.setShouldRun(true);
 
