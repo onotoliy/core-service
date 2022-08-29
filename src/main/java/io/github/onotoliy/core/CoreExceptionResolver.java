@@ -4,6 +4,7 @@ import io.github.onotoliy.core.data.ExceptionInformation;
 import io.github.onotoliy.core.data.HTTPStatus;
 import io.github.onotoliy.core.exceptions.ModificationException;
 import io.github.onotoliy.core.exceptions.NotFoundException;
+import io.github.onotoliy.core.exceptions.NotImplementedException;
 import io.github.onotoliy.core.exceptions.NotUniqueException;
 
 import org.springframework.http.HttpStatus;
@@ -39,6 +40,21 @@ public class CoreExceptionResolver {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                              .body(new ExceptionInformation(
                                 HTTPStatus.BAD_REQUEST, e.getMessage()));
+    }
+
+    /**
+     * Преобразовывает ошибку {@link NotImplementedException} в читаемых формат
+     * клиента {@link ExceptionInformation}.
+     *
+     * @param e Ошибка.
+     * @return Ошибка
+     */
+    @ExceptionHandler(NotImplementedException.class)
+    public ResponseEntity<ExceptionInformation> resolve(
+            final NotImplementedException e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(new ExceptionInformation(
+                        HTTPStatus.BAD_REQUEST, e.getMessage()));
     }
 
     /**

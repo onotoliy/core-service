@@ -7,7 +7,7 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
   <changeSet id="2020-09-04-1-treasure-init" author="onotoliy">
-    <createTable tableName="treasure_log" remarks="Логи">
+    <createTable tableName="core_log" remarks="Логи">
       <column name="guid" type="uuid" remarks="Уникальный идентификатор">
         <constraints primaryKey="true"/>
       </column>
@@ -21,10 +21,14 @@
   </changeSet>
 
   <changeSet id="2021-09-15-1-treasure-init" author="onotoliy">
-    <createTable tableName="treasure_exception" remarks="Описание ошибки устройства">
+    <createTable tableName="core_device_exception" remarks="Описание ошибки устройства">
       <column name="guid" type="uuid" remarks="Уникальный идентификатор">
         <constraints primaryKey="true"/>
       </column>
+      <column name="name" type="varchar" remarks="Название"/>
+      <column name="author" type="uuid" remarks="Автор"/>
+      <column name="creation_date" type="datetime" remarks="Дата создания"/>
+      <column name="deletion_date" type="datetime" remarks="Дата удаления"/>
       <column name="device" type="varchar" remarks="Устройство"/>
       <column name="agent" type="varchar" remarks="Агент"/>
       <column name="message" type="varchar" remarks="Сообщение об ошибки"/>

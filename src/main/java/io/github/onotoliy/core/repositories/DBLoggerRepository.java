@@ -11,7 +11,7 @@ import org.jooq.DSLContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import static io.github.onotoliy.core.jooq.Tables.TREASURE_LOG;
+import static io.github.onotoliy.core.jooq.Tables.CORE_LOG;
 
 /**
  * Репозиторий логирования.
@@ -130,14 +130,14 @@ public class DBLoggerRepository {
                      final Class<?> clazz,
                      final String message,
                      final Throwable throwable) {
-        dsl.insertInto(TREASURE_LOG)
-           .set(TREASURE_LOG.GUID, GUIDs.random())
-           .set(TREASURE_LOG.LEVEL, level.name())
-           .set(TREASURE_LOG.AUTHOR, author)
-           .set(TREASURE_LOG.BEAN_NAME, clazz.getCanonicalName())
-           .set(TREASURE_LOG.MESSAGE, message)
-           .set(TREASURE_LOG.CREATION_DATE, Dates.now())
-           .set(TREASURE_LOG.STACK_TRACE, Throwables.format(throwable))
+        dsl.insertInto(CORE_LOG)
+           .set(CORE_LOG.GUID, GUIDs.random())
+           .set(CORE_LOG.LEVEL, level.name())
+           .set(CORE_LOG.AUTHOR, author)
+           .set(CORE_LOG.BEAN_NAME, clazz.getCanonicalName())
+           .set(CORE_LOG.MESSAGE, message)
+           .set(CORE_LOG.CREATION_DATE, Dates.now())
+           .set(CORE_LOG.STACK_TRACE, Throwables.format(throwable))
            .execute();
     }
 }

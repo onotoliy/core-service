@@ -4,10 +4,10 @@
 package io.github.onotoliy.core.jooq;
 
 
-import io.github.onotoliy.core.jooq.tables.TreasureException;
-import io.github.onotoliy.core.jooq.tables.TreasureLog;
-import io.github.onotoliy.core.jooq.tables.records.TreasureExceptionRecord;
-import io.github.onotoliy.core.jooq.tables.records.TreasureLogRecord;
+import io.github.onotoliy.core.jooq.tables.CoreDeviceException;
+import io.github.onotoliy.core.jooq.tables.CoreLog;
+import io.github.onotoliy.core.jooq.tables.records.CoreDeviceExceptionRecord;
+import io.github.onotoliy.core.jooq.tables.records.CoreLogRecord;
 
 import org.jooq.TableField;
 import org.jooq.UniqueKey;
@@ -17,7 +17,7 @@ import org.jooq.impl.Internal;
 
 /**
  * A class modelling foreign key relationships and constraints of tables in 
- * public.
+ * the default schema.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Keys {
@@ -26,6 +26,6 @@ public class Keys {
     // UNIQUE and PRIMARY KEY definitions
     // -------------------------------------------------------------------------
 
-    public static final UniqueKey<TreasureExceptionRecord> TREASURE_EXCEPTION_PKEY = Internal.createUniqueKey(TreasureException.TREASURE_EXCEPTION, DSL.name("treasure_exception_pkey"), new TableField[] { TreasureException.TREASURE_EXCEPTION.GUID }, true);
-    public static final UniqueKey<TreasureLogRecord> TREASURE_LOG_PKEY = Internal.createUniqueKey(TreasureLog.TREASURE_LOG, DSL.name("treasure_log_pkey"), new TableField[] { TreasureLog.TREASURE_LOG.GUID }, true);
+    public static final UniqueKey<CoreDeviceExceptionRecord> PK_CORE_DEVICE_EXCEPTION = Internal.createUniqueKey(CoreDeviceException.CORE_DEVICE_EXCEPTION, DSL.name("PK_CORE_DEVICE_EXCEPTION"), new TableField[] { CoreDeviceException.CORE_DEVICE_EXCEPTION.GUID }, true);
+    public static final UniqueKey<CoreLogRecord> PK_CORE_LOG = Internal.createUniqueKey(CoreLog.CORE_LOG, DSL.name("PK_CORE_LOG"), new TableField[] { CoreLog.CORE_LOG.GUID }, true);
 }

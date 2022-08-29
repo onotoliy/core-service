@@ -4,12 +4,12 @@
 package io.github.onotoliy.core.jooq;
 
 
-import io.github.onotoliy.core.jooq.tables.TreasureException;
-import io.github.onotoliy.core.jooq.tables.TreasureLog;
+import io.github.onotoliy.core.jooq.tables.CoreDeviceException;
+import io.github.onotoliy.core.jooq.tables.CoreLog;
 
 
 /**
- * Convenience access to all tables in public.
+ * Convenience access to all tables in the default schema.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Tables {
@@ -17,10 +17,10 @@ public class Tables {
     /**
      * Описание ошибки устройства
      */
-    public static final TreasureException TREASURE_EXCEPTION = TreasureException.TREASURE_EXCEPTION;
+    public static final CoreDeviceException CORE_DEVICE_EXCEPTION = CoreDeviceException.CORE_DEVICE_EXCEPTION;
 
     /**
      * Логи
      */
-    public static final TreasureLog TREASURE_LOG = TreasureLog.TREASURE_LOG;
+    public static final CoreLog CORE_LOG = CoreLog.CORE_LOG;
 }
